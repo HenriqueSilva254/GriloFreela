@@ -5,9 +5,8 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         border: none;
         border-radius: 5px;
-        background-color: #a328d6;
+        background-color: rgb(20 110 35);
         font-size: 20px;
-        font-weight: 600;
         color: #fff;
         cursor: pointer;
         width: 100%;

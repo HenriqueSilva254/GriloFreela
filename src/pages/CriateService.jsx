@@ -9,6 +9,7 @@ export default function CriateService() {
   const [titulo, setTitulo] = useState();
   const [descricao, setDescricao] = useState();
   const [imagem, setImagem] = useState();
+  const [preco, setPreco] = useState()
 
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -25,13 +26,15 @@ export default function CriateService() {
       titulo,
       descricao,
       imagem,
+      preco,
       name: user.name,
     };
 
+    console.log(dados)
     services
       .postService(user.token, dados)
       .then(navigate("/HomePage"))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response.data));
   }
   return (
     <ContainerMain>
@@ -72,12 +75,13 @@ export default function CriateService() {
           <Formgroup>
             <label for="Imagem">Preço</label>
             <input
-              type="text"
-              id="Imagem"
-              name="Imagem"
-              pattern="https://.+"
+              data-test="registry-amount-input"
+              placeholder="0,00"
+              type="number"
+              min={0}
+              step="0.01"
               required
-              onChange={(e) => setImagem(e.target.value)}
+              onChange={(e) => setPreco(e.target.value.toString())}
             />
           </Formgroup>
           <Formgroup>
