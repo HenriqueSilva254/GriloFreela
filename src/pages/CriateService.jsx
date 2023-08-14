@@ -4,12 +4,13 @@ import { UserContext } from "../contexts/userContext";
 import { useNavigate, useParams } from "react-router-dom";
 import services from "../services/apiServices";
 import Headers from "../components/header";
+import Footer from "../components/Rodape";
 
 export default function CriateService() {
   const [titulo, setTitulo] = useState();
   const [descricao, setDescricao] = useState();
   const [imagem, setImagem] = useState();
-  const [preco, setPreco] = useState()
+  const [preco, setPreco] = useState();
 
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -30,75 +31,85 @@ export default function CriateService() {
       name: user.name,
     };
 
-    console.log(dados)
+    console.log(dados);
     services
       .postService(user.token, dados)
       .then(navigate("/HomePage"))
       .catch((err) => console.log(err.response.data));
   }
   return (
-    <ContainerMain>
-      <Headers></Headers>
-      <Container>
-        <h1>Criar Serviço</h1>
-        <form onSubmit={novoServico}>
-          <Formgroup>
-            <label for="titulo">Serviço Prestado</label>
-            <input
-              type="text"
-              id="titulo"
-              name="titulo"
-              required
-              onChange={(e) => setTitulo(e.target.value)}
-            />
-          </Formgroup>
-          <Formgroup>
-            <label for="descricao">Descrição do Serviço</label>
-            <textarea
-              id="descricao"
-              name="descricao"
-              required
-              onChange={(e) => setDescricao(e.target.value)}
-            ></textarea>
-          </Formgroup>
-          <Formgroup>
-            <label for="Imagem">Imagem do Serviço Prestado</label>
-            <input
-              type="text"
-              id="Imagem"
-              name="Imagem"
-              pattern="https://.+"
-              required
-              onChange={(e) => setImagem(e.target.value)}
-            />
-          </Formgroup>
-          <Formgroup>
-            <label for="Imagem">Preço</label>
-            <input
-              data-test="registry-amount-input"
-              placeholder="0,00"
-              type="number"
-              min={0}
-              step="0.01"
-              required
-              onChange={(e) => setPreco(e.target.value.toString())}
-            />
-          </Formgroup>
-          <Formgroup>
-            <input type="submit" value="Enviar Projeto" />
-          </Formgroup>
-        </form>
-      </Container>
-    </ContainerMain>
+    <>
+      <ContainerMain>
+        <Headers></Headers>
+        <Container>
+          <h1>Criar Serviço</h1>
+          <form onSubmit={novoServico}>
+            <Formgroup>
+              <label for="titulo">Serviço Prestado</label>
+              <input
+                type="text"
+                id="titulo"
+                name="titulo"
+                required
+                onChange={(e) => setTitulo(e.target.value)}
+              />
+            </Formgroup>
+            <Formgroup>
+              <label for="descricao">Descrição do Serviço</label>
+              <textarea
+                id="descricao"
+                name="descricao"
+                required
+                onChange={(e) => setDescricao(e.target.value)}
+              ></textarea>
+            </Formgroup>
+            <Formgroup>
+              <label for="Imagem">Imagem do Serviço Prestado</label>
+              <input
+                type="text"
+                id="Imagem"
+                name="Imagem"
+                pattern="https://.+"
+                required
+                onChange={(e) => setImagem(e.target.value)}
+              />
+            </Formgroup>
+            <Formgroup>
+              <label for="Imagem">Preço</label>
+              <input
+                placeholder="0,00"
+                type="number"
+                min={0}
+                step="0.01"
+                required
+                onChange={(e) => setPreco(e.target.value.toString())}
+              />
+            </Formgroup>
+            <Formgroup>
+              <input type="submit" value="Enviar Projeto" />
+            </Formgroup>
+          </form>
+        </Container>
+      </ContainerMain>
+      <Footer />
+    </>
   );
 }
 const ContainerMain = styled.main`
   width: 100%;
-  background-color: #fff;
+  display: flex;
+    background-color: rgb(34, 20, 20);
+    flex-direction: column;
+    height: 1200px;
   h1 {
     align-self: flex-start;
     margin-bottom: 40px;
   }
+  color: white;
+  input, textarea{
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
 `;
 const Container = styled.div`
   width: 100%;
@@ -129,16 +140,20 @@ const Formgroup = styled.div`
     font-size: 16px;
   }
   textarea {
-    width: 1050px;
+    width: calc(100% - 30px);
     height: 100px;
+  }
+  input[type="number"]{
+    padding: 10px;
   }
   input[type="submit"] {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    
     border-radius: 5px;
     cursor: pointer;
+    width: calc(100% - 5px);
   }
   select {
     width: 40%;

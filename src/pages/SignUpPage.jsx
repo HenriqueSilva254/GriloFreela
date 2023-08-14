@@ -1,8 +1,8 @@
 import { Link, Navigate, useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import MyWalletLogo from "../components/MyWalletLogo"
 import { useState } from "react"
 import Auth from "../services/apiAuth"
+import SamuraiLogo from "../components/samuraiLogo";
 
 
 export default function SignUpPage() {
@@ -37,7 +37,7 @@ export default function SignUpPage() {
   return (
     <SingUpContainer>
       <form onSubmit={HeadSignUp}>
-        <MyWalletLogo />
+        <SamuraiLogo />
         <input 
         placeholder="Nome Completo" 
         type="text" 
@@ -96,7 +96,7 @@ export default function SignUpPage() {
 }
 
 const SingUpContainer = styled.section`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,5 +109,16 @@ const SingUpContainer = styled.section`
     font-size: 22px;
     color: black;
     font-weight: 200;
+    @media(max-width: 768px) {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+  }
+  input:hover{
+    background-color: #f09999;
+    transition: 2s;
+  }
+  button{
+    background-color:rgb(130 10 9);
   }
 `

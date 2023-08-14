@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/userContext";
 import { useNavigate } from "react-router-dom";
 import services from "../services/apiServices";
 import Headers from "../components/header";
+import Footer from "../components/Rodape";
 
 // henri254@gmail.com
 export default function HomePage() {
@@ -27,31 +28,9 @@ export default function HomePage() {
     }
   }, []);
   return (
+    <>
     <HomeContainer>
       <Headers />
-      <ImagemCabecario>
-        <DarkOverlay>
-          <h1>Encontre um profissional para seu negócio</h1>
-        </DarkOverlay>
-        <ButtonsContainer>
-          <button
-            data-test="new-income"
-            onClick={() => {
-              navigate("/criar/servico");
-            }}
-          >
-            Criar novo Serviço
-          </button>
-          <button
-            data-test="new-expense"
-            onClick={() => {
-              navigate("/nova-transacao/saida");
-            }}
-          >
-             Meus Serviço   
-          </button>
-        </ButtonsContainer>
-      </ImagemCabecario>
       <TransactionsContainer>
         <ul>
           {ofertas.map((service) => (
@@ -81,41 +60,15 @@ export default function HomePage() {
         </ul>
       </TransactionsContainer>
     </HomeContainer>
+    <Footer></Footer>
+    </>
   );
 }
-
-const ImagemCabecario = styled.div`
-  position: relative;
-  background-image: url("https://cdn.wizard.com.br/wp-content/uploads/2020/05/06155457/PJ-ou-CLT-qual-o-melhor-regime-de-trabalho.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 400px;
-  @media (max-width: 768px) {
-    height: 600px;
-  }
-`;
-const DarkOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Camada escura com opacidade */
-  h1 {
-    margin-top: 10%;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
-    font-size: 40px;
-  }
-`;
 
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0);
   strong {
     font-size: 21px;
     font-weight: 700;
@@ -140,51 +93,22 @@ const TransactionsContainer = styled.article`
     }
   }
 `;
-const ButtonsContainer = styled.section`
-  margin-top: 250px;
-  display: flex;
-  gap: 15px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  justify-content: center;
-  position: relative;
-  @media(max-width: 768px) {
-     flex-direction:column ;
-     align-items: center;
-     
-    }
-  button {
-    width: 20%;
-    height: 69px;
-    @media(max-width: 768px) {
-      width: 80%;
-    height: 69px;
-    }
-  }
-  button:hover{
-    background-color: rgb(28 163 51);
-    transition: 2s;
-  }
-`;
-const Value = styled.div`
-  font-size: 16px;
-  text-align: right;
-  color: ${(props) => (props.color === "positivo" ? "green" : "red")};
-`;
 const ListItemContainer = styled.li`
   width: 100%;
   position: relative;
   height: 100%;
-  background-color: #fcf5f7;
+  background-color: rgb(56, 46, 37);
   border: 1px solid #edeced;
-  border-radius: 5px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-around;
   margin: 10px auto;
+  color: #edeced;
 
   @media (max-width: 768px) {
+    width: 500px;
     height: 600px;
     justify-content: inherit;
     p {
@@ -193,9 +117,9 @@ const ListItemContainer = styled.li`
   }
 
   h2 {
-    color: #7171e7;
+    color: #ff6d25;
     font-size: 28px;
-    height: 30px;
+    font-family: 'Permanent Marker', cursive;
     margin-left: 10px;
   }
   div {

@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { Link, useNavigate } from "react-router-dom"
-import MyWalletLogo from "../components/MyWalletLogo"
 import { useContext, useState } from "react"
 import Auth from "../services/apiAuth"
 import { UserContext } from "../contexts/userContext"
+import SamuraiLogo from "../components/samuraiLogo"
 
 
 export default function SignInPage() {
@@ -39,9 +39,11 @@ export default function SignInPage() {
 
   // layout da page login
   return (
+    
     <SingInContainer>
+      
       <form onSubmit={HeadLogin}>
-        <MyWalletLogo />
+        <SamuraiLogo />
         <input
           data-test="email"
           placeholder="E-mail"
@@ -71,7 +73,8 @@ export default function SignInPage() {
 }
 
 const SingInContainer = styled.section`
-  height: 100vh;
+  background-image: url("");
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,9 +84,17 @@ const SingInContainer = styled.section`
   }
   a{
     font-family: sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     color: black;
     font-weight: 200;
-  }                          
+  }                         
+
+  button{
+    background-color:rgb(130 10 9);
+  }
+  input:hover{
+    background-color: #f09999;
+    transition: 2s;
+  }
 `
 

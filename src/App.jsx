@@ -6,6 +6,7 @@ import SignUpPage from "./pages/SignUpPage"
 import CriateService from "./pages/CriateService"
 import UserProvider from "./contexts/userContext"
 import Propostas from "./pages/Proposta"
+import Meuservicos from "./pages/MeuServico"
 
 export default function App() {
 
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/criar/servico" element={<CriateService />} />
           <Route path="/proposta/:id" element={<Propostas />} />
+          <Route path="/Meus/Servicos" element={<Meuservicos />} />
         </Routes>
       </UserProvider>  
       </BrowserRouter>
