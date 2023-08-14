@@ -46,7 +46,7 @@ export default function SignUpPage() {
         onChange={(e) => setName(e.target.value)}
         />
         <input 
-        placeholder="(xx) xxxxx-xxxx" 
+        placeholder=" xxxxx-xxxx" 
         type="number" 
         pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"
         required
