@@ -144,7 +144,7 @@ const ListItemContainer = styled.li`
     margin-left: 10px;
   }
   div {
-    width: 100%;
+    width: 675px;
     max-width: 780px;
     display: flex;
     flex-direction: column;
@@ -155,8 +155,9 @@ const ListItemContainer = styled.li`
     }
     img {
       position: absolute;
-      width: 40%;
-      left: 600px;
+      width: 340px;
+      height: 340px;
+      left: 710px;
       top: 60px;
       @media (max-width: 768px) {
         position: absolute;

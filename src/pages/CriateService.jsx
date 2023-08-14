@@ -35,7 +35,7 @@ export default function CriateService() {
     services
       .postService(user.token, dados)
       .then(navigate("/HomePage"))
-      .catch((err) => console.log(err.response.data));
+      .catch((err) => console.log(err));
   }
   return (
     <>

@@ -106,7 +106,7 @@ const ListItemContainer = styled.li`
   justify-content: space-around;
   margin: 10px auto;
   color: #edeced;
-
+  cursor: pointer;
   @media (max-width: 768px) {
     width: 500px;
     height: 600px;

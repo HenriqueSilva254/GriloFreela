@@ -122,7 +122,7 @@ const ListItemContainer = styled.li`
   justify-content: space-around;
   margin: 10px auto;
   color: #edeced;
-  cursor: pointer;
+  
   @media (max-width: 768px) {
     height: 600px;
     justify-content: inherit;
@@ -158,6 +158,7 @@ const ListItemContainer = styled.li`
         position: absolute;
         width: 300px;
         left: 8%;
+        top: 345px;
         top: 345px;
         bottom: 0px;
       }
